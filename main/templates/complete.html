@@ -15,13 +15,13 @@
             <h1>음식 픽업 완료 시 버튼을 눌러주세요.</h1><br>
             <h2>n초 후에 HENES가 출발합니다.</h2> <!-- 숫자 알아서 카운트 되게 기능 넣기 -->
             <h2>맛있게 드세요:)</h2>
-
-            <form action="{% url 'complete' %}" method="POST">
-                <button type="button">
-                    <img src="/static/images/logo.png" alt="check" width="400px" style="padding-left: 0px;">
-                </button> <!-- 페이지 이동X, henes 출발할 수 있도록 토픽 보내기 -->
-            </form>
-
+            <div class="btn">
+                <a href="end">
+                    <button type="button" onclick="location.href='end.html'">
+                        <img src="/static/images/logo.png" alt="check" width="400px" style="padding-left: 0px;">
+                    </button>
+                </a>
+            </div>
         </div>
     </div>
 </body>
