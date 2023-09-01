@@ -1,25 +1,28 @@
 import rospy
+import os
+import subprocess
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from std_msgs.msg import Bool
 
 # Create your views here.
 def main(request):
-    return render(request,'main.html')
+    return render(request, 'main.html')
+    
+rospy.init_node('ros_web_interface', anonymous=True)
 def goods(request):
-    try:
-        with open('open.py', 'r') as file:
-            code = file.read()
-            exec(code)
-        return render(request, 'goods.html')
-    except Exception as e:
-        return HttpResponse(f"Error: {str(e)}")
+    pub = rospy.Publisher('button_press', Bool, queue_size=10)
+    msg = Bool(data=True)
+    pub.publish(msg)
+    return render(request, 'goods.html')
+    #msg = Bool(data="Button Pressed")
+    #pub.publish(msg)
+    #response_data = {'message': 'ROS message sent successfully'}
+    #return JsonResponse(response_data)
 
+rospy.init_node('ros_web_interface', anonymous=True)
 def complete(request):
-    try:
-        with open('go.py', 'r') as file:
-            code = file.read()
-            exec(code)
-        return render(request, 'complete.html')
-    except Exception as e:
-        return HttpResponse(f"Error: {str(e)}")
+    pub = rospy.Publisher('button_press', Bool, queue_size=10)
+    msg = Bool(data=True)
+    pub.publish(msg)
+    return render(request, 'complete.html')

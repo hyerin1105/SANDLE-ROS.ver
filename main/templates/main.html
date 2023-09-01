@@ -16,12 +16,38 @@
             <h1>산들 SANDLE</h1>
             <h1>음식을 주문하셨나요?</h1>
             <a href="goods">
-                <button type="button" onclick="location.href='goods.html'">
+                <!-- <button type="button" onclick="location.href='goods.html'"> -->
+                <button onclick="sendRosMessage()">
                     <img src="/static/images/logo.png" alt="check" width="400px" style="padding-left: 0px;">
                 </button>
             </a>
         </div>
     </div>
+
+    <script>
+        function sendRosMessage() {
+            fetch('/goods', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    action: 'button_press'
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = '/goods.html';
+                } else {
+                    alert('Failed to send ROS message');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+    
 </body>
 {% endblock %}
 </html>

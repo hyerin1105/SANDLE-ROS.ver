@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
 import os
+import rospy
 import sys
+import subprocess
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
 
 
 def main():
