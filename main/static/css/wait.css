@@ -11,27 +11,10 @@ html {
     background-color: #184b9c;
 }
 
-h1 {
-    padding-top: 50px;
-    margin-left:15px;
-    font-size: 80px;
-    color: #ffffff;
-    font-family: 'EF_watermelonSalad';
-}
-
-h2 {
-    margin-top: 20px;
-    margin-left:15px;
-    margin-bottom: 20px;
-    padding: 0px;
-    font-size: 65px;
-    color: #ffffff;
-    font-family: 'EF_watermelonSalad';
-}
-
 .check{
     display: inline-block;
     vertical-align: middle;
     margin-left: 20px;
+    margin-bottom: 20px;
     font-family: 'EF_watermelonSalad';
 }
