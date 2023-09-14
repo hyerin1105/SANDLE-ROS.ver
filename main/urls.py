@@ -1,9 +1,16 @@
+from django.contrib import admin
 from django.urls import path, include
-import main.views
+from main import views
 
 urlpatterns = [
-    path('', main.views.main, name="main"),
-    path('goods', main.views.goods, name="goods"),
-    path('complete', main.views.complete, name="complete"),
-    path('end', main.views.end, name="end"),
+    ########### ceo ###########
+    path('', views.wait, name="wait"),
+    path('wait', views.wait, name="wait"),
+    path('loading', views.loading, name="loading"),
+    path('checking', views.checking, name="checking"),
+    ########### customer ###########
+    path('main', views.main, name="main"),
+    path('goods/<int:customer_id>', views.goods, name="goods"),
+    path('complete', views.complete, name="complete"),
+    path('end', views.end, name="end"),
 ]
