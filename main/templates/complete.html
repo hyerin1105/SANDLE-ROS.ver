@@ -16,11 +16,9 @@
             <h2>n초 후에 HENES가 출발합니다.</h2> <!-- 숫자 알아서 카운트 되게 기능 넣기 -->
             <h2>:)</h2>
             <div class="btn">
-                <a href="end">
-                    <button type="button" onclick="location.href='end.html'">
-                        <img src="/static/images/logo.png" alt="check" width="400px" style="padding-left: 0px;">
-                    </button>
-                </a>
+                <button type="button"><a href="{% url 'end' %}">
+                    <img src="/static/images/logo.png" alt="check" width="400px" style="padding-left: 0px;">
+                </a></button>
             </div>
         </div>
     </div>

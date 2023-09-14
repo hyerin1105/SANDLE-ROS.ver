@@ -6,6 +6,7 @@ from .models import Customer
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, JsonResponse, Http404
 from std_msgs.msg import Bool
+from django.contrib.auth import authenticate
 from django.core.exceptions import PermissionDenied
 from django.contrib.auth.decorators import login_required
 
@@ -21,15 +22,25 @@ def checking(request):
     return render(request, 'checking.html')
 
 ########### customer ###########
-def main(request):
-    return render(request,'main.html')
+def main1(request):
+    pub = rospy.Publisher('button_open', Bool, queue_size=10)
+    msg = Bool(data=True)
+    pub.publish(msg)
     
+    rospy.init_node('ros_web_interface', anonymous=True)
+    pub2 = rospy.Publisher('button_go', Bool, queue_size=10)
+    msg2 = Bool(data=True)
+    pub2.publish(msg2)
+    return render(request,'main1.html')
+
 rospy.init_node('ros_web_interface', anonymous=True)
+@login_required(login_url='managment/login/')
 def goods(request):
-    pub = rospy.Publisher('button_press', Bool, queue_size=10)
+    pub = rospy.Publisher('button_open', Bool, queue_size=10)
     msg = Bool(data=True)
     pub.publish(msg)
     return render(request, 'goods.html')
+
     #msg = Bool(data="Button Pressed")
     #pub.publish(msg)
     #response_data = {'message': 'ROS message sent successfully'}
@@ -47,7 +58,7 @@ def complete(request):
 
 rospy.init_node('ros_web_interface', anonymous=True)
 def end(request):
-    pub2 = rospy.Publisher('button_press2', Bool, queue_size=10)
+    pub2 = rospy.Publisher('button_go', Bool, queue_size=10)
     msg2 = Bool(data=True)
     pub2.publish(msg2)
     return render(request, 'end.html')

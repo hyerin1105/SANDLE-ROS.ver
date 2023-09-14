@@ -1,0 +1,39 @@
+{% load static %}
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>산들 SANDLE - 고객 정보 등록</title>
+    <link rel="stylesheet"  href="{% static 'css/login.css' %}">
+</head>
+
+<body>
+    <div class="loginbox" align="center">
+        <form method="POST" action="{% url 'signup' %}">
+            {% csrf_token %}
+            <div id="signup" align="center">
+                <div class="login_image">
+                        <img src="/static/images/logo.png" alt="logo" width="30%" style="margin-top: 124px;">
+                    <div>
+                        <form method="POST" action="{% url 'checking' %}">
+                                {% csrf_token %}
+                            <div class="signup-page" style="padding-top: 20px;">
+                                <div class="form">
+                                    <form class="signup-form">
+                                        <input type="text" id="username" name="username" placeholder="주소" /><br>
+                                        <input type="password" id="password" name="password" placeholder="비밀번호" /><br>
+                                        <input type="password" id="password" name="password" placeholder="비밀번호 확인" /><br>
+                                        <button type="button">mic</button>
+                                        <br>
+                                        <button type="submit"><a href="http://127.0.0.1:8000/admin">고객 등록하기</a></button>
+                                </form>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

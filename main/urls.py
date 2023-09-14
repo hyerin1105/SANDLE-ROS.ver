@@ -9,8 +9,8 @@ urlpatterns = [
     path('loading', views.loading, name="loading"),
     path('checking', views.checking, name="checking"),
     ########### customer ###########
-    path('main', views.main, name="main"),
-    path('goods/<int:customer_id>', views.goods, name="goods"),
+    path('main1', views.main1, name="main1"),
+    path('goods', views.goods, name="goods"),
     path('complete', views.complete, name="complete"),
     path('end', views.end, name="end"),
 ]

@@ -35,3 +35,9 @@ h2 {
     margin-left: 20px;
     font-family: 'EF_watermelonSalad';
 }
+
+.btn{
+    margin-left: 700px;
+    margin-bottom: 100px;
+    border: 10;
+}
