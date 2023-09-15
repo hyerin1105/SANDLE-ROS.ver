@@ -37,7 +37,7 @@ def main1(request):
     pub2.publish(msg2)
     return render(request,'main1.html')
 
-@login_required(login_url='managment/login/')
+#@login_required(login_url='managment/login/')
 def goods(request):
     return render(request, 'goods.html')
 """
