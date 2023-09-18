@@ -1,8 +1,8 @@
 import rospy
 from std_msgs.msg import Bool
 
-rospy.init_node('open_door_node', anonymous=True)
-pub = rospy.Publisher('/open_door', Bool, queue_size=10)
+rospy.init_node('mic_node', anonymous=True)
+pub = rospy.Publisher('/mic', Bool, queue_size=10)
 rate = rospy.Rate(1)
 val = Bool()
 

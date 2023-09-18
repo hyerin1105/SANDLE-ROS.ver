@@ -101,7 +101,7 @@ def login(request):
     """
 
 # 로그아웃
-#@login_required  # 로그인 인증되어있을 때만 실행됨
+#@login_required 로그인 인증되어있을 때만 실행됨
 def logout(request):
     # logout으로 POST 요청이 들어왔을 때, 로그아웃 절차를 밟는다.
     auth.logout(request)
