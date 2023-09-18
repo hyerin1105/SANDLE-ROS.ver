@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import rospy
 from std_msgs.msg import Bool
 
@@ -8,7 +6,7 @@ pub = rospy.Publisher('/receive_product', Bool, queue_size=10)
 rate = rospy.Rate(1)
 val = Bool()
 
-def publish_receive_product():
+def publish_receive_product(): # diff
     msg = "Button Pressed"
     rospy.loginfo(msg)
     pub.publish(msg)
