@@ -6,9 +6,9 @@ from django.contrib.auth.forms import UserCreationForm
 class LoginForm(forms.ModelForm):
     class Meta:
         model=Customer
-        fields=("username", "password")
+        fields=("password", )
 
 class UserForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ("username", "password", "confirm")
+        fields = ("username", "password1", "password2")

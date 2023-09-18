@@ -1,6 +1,4 @@
-{% block content %}
 {% load static %}
-
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
@@ -9,44 +7,37 @@
 </head>
 
 <body>
-	<div class="container" style="text-align: center;">
-		<fieldset>
-			<legend style="color: #888B81;">
-				<br><br><br><br><br>
-				<h1>가게명</h1>
+		<legend style="color: #888B81; text-align: center">
+			<br><br><br><br><br>
+			<h1>가게명</h1>
 				
-				<div class="bar" style="text-align: center">
-					<hr width = "190px" color = "#ffffff" size = "3">
-				</div>
-				<br><br><br>
+			<div class="bar" style="text-align: center">
+				<hr width = "190px" color = "#ffffff" size = "3">
+			</div><br><br>
 				
-				<h1>치악산 산자락 어딘가</h1>
-			</legend>
-			<br><br><br>
-			<legend style="color: #888B81;">
-				<h1>주문 상품</h1>
+			<div class="img_peach">
+				<img src="/static/images/gs25.png" alt="goods_1" width="220px">
+			</div>
+			<h1>향설생활관1 GS25</h1>
+		</legend>
+		<br><br><br>
+		<legend style="color: #888B81; text-align: center">
+			<h1>주문 상품</h1>
 
-				<div class="bar" style="text-align: center">
-					<hr width = "190px" color = "#ffffff" size = "3">
-				</div>
-				<br><br><br>
+			<div class="bar" style="text-align: center">
+				<hr width = "190px" color = "#ffffff" size = "3">
+			</div><br><br>
 
-				<div class="img_peach" style="float: left;">
-					<img src="/static/images/peach.jpeg" alt="goods_2" width="220px">
-					<h1>치악산 복숭아 1박스</h1>
-				</div>
-			</legend>
-		</fieldset>
-	</div>
+			<div class="img_peach">
+				<img src="/static/images/peach.jpeg" alt="goods_2" width="220px">
+			</div>
+			<h1>치악산 복숭아 1박스</h1><br><br>
+		</legend>
 
 	<div class="btn">
-		<a href="complete">
-			<button type="button" onclick="location.href='complete.html'">
-				<img src="/static/images/logo.png" alt="check" width="400px" style="padding-left: 0px;">
-			</button>
-		</a>
+		<button type="button"><a href="{% url 'complete' %}">
+			<img src="/static/images/logo.png" alt="check" width="400px" style="padding-left: 0px;">
+		</a></button>
 	</div>
-	
 </body>
-{% endblock %}
 </html>

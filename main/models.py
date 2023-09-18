@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Customer(models.Model):
-    username = models.CharField(max_length=4) # number
-    password = models.CharField(max_length=6)
-    
+    address = models.CharField(max_length=30)
+    password = models.CharField(max_length=10)
+
     def __str__(self):
-        return self.username
+        return self.address
