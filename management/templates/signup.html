@@ -35,21 +35,23 @@
             </div>
         </form>
     </div>
-    
+
     <script type="text/javascript">
-        $(document).ready(function() {
-            $("#mic_button").click(function() {
-                $.ajax({
-                    type: "POST",
-                    url: "/ros/mic",
-                    success: function(response) {
-                        console.log("ROS topic published successfully");
-                    },
-                    error: function(xhr, textStatus, errorThrown) {
-                        console.error("Error publishing ROS topic ": errorThrown);
-                    }
-                });
-            });
+        $("#mic_button").click(function() {
+            username = parseInt(("#username").val());
+            password = parseInt(("#password").val());
+            $("#result").val(username, password);
+        });
+    </script>
+
+    <script type="text/javascript">
+        $("#mic_button").click(function() {
+            username = parseInt(("#username").val());
+            password = parseInt(("#password").val());
+            $("#result").val(username, password)
+            console.log(JSON.stringify(data));
+            console.log("bbb");
+        console.log("aaa");
         });
     </script>
 </body>

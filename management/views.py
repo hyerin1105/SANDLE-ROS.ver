@@ -14,10 +14,13 @@ from django.views.decorators.http import require_POST
 rospy.init_node('ros_web_interface', anonymous=True)
 # 회원가입
 def signup(request):
-    pub = rospy.Publisher('button_open', Bool, queue_size=10)
-    msg = Bool(data=True)
-    pub.publish(msg)
     if request.method == 'GET':
+        """
+        pub4 = rospy.Publisher('mic', Bool, queue_size=10)
+        msg4 = Bool(data=True)
+        pub4.publish(msg4)
+        return JsonResponse({'message': 'Enable speeh recognition'})
+        """
         return render(request, 'signup.html')
 
     elif request.method == 'POST':
@@ -39,6 +42,9 @@ def signup(request):
             )
             customer.save()
             return redirect('checking')
+    pub = rospy.Publisher('button_open', Bool, queue_size=10)
+    msg = Bool(data=True)
+    pub.publish(msg)     
     return render(request, 'signup.html', err_data)
 
 # 로그인
