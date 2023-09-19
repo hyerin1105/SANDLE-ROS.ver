@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth.hashers import make_password, check_password
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
@@ -46,11 +46,6 @@ def signup(request):
 @csrf_exempt
 def login(request):
     if request.method == 'GET':
-        """
-        pub4 = rospy.Publisher('mic_btn', Bool, queue_size=10)
-        msg4 = Bool(data=True)
-        pub4.publish(msg4)
-        """
         return render(request, 'login.html')
     elif request.method == 'POST':
         username = request.POST.get('username', None)
@@ -67,7 +62,26 @@ def login(request):
             else:
                 err_data['error'] = '비밀번호가 일치하지 않습니다.'
         return render(request, 'signup.html', err_data)
+        
+    """
+    rospy.init_node('ros_web_interface', anonymous=True)
+    pub = rospy.Publisher('/mic', Bool, queue_size=10)
 
+    def publish_mic_topic(request):
+        msg = Bool(data=True)
+        pub.publish(msg)
+        return JsonResponse({'message': 'ROS topic published successfully'})
+    """
+
+"""
+rospy.init_node('ros_web_interface', anonymous=True)
+pub = rospy.Publisher('/mic', Bool, queue_size=10)
+
+def publish_mic_topic(request):
+    msg = Bool(data=True)
+    pub.publish(msg)
+    return JsonResponse({'message': 'ROS topic published successfully'})
+"""
 # 로그아웃
 #@login_required 로그인 인증되어있을 때만 실행됨
 def logout(request):
