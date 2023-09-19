@@ -42,13 +42,15 @@ def signup(request):
     return render(request, 'signup.html', err_data)
 
 # 로그인
+#rospy.init_node('ros_web_interface', anonymous=True)
 @csrf_exempt
 def login(request):
     if request.method == 'GET':
-        rospy.init_node('ros_web_interface', anonymous=True)
-        pub2 = rospy.Publisher('mic_button', Bool, queue_size=10)
-        msg2 = Bool(data=True)
-        pub2.publish(msg2)
+        """
+        pub4 = rospy.Publisher('mic_btn', Bool, queue_size=10)
+        msg4 = Bool(data=True)
+        pub4.publish(msg4)
+        """
         return render(request, 'login.html')
     elif request.method == 'POST':
         username = request.POST.get('username', None)
@@ -69,6 +71,5 @@ def login(request):
 # 로그아웃
 #@login_required 로그인 인증되어있을 때만 실행됨
 def logout(request):
-    # logout으로 POST 요청이 들어왔을 때, 로그아웃 절차를 밟는다.
     auth.logout(request)
     return redirect('wait')
