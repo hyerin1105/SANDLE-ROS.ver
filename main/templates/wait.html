@@ -1,0 +1,23 @@
+{% block content %}
+{% load static %}
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>산들 SANDLE</title>
+    <link rel="stylesheet" href="{% static 'css/wait.css' %}">
+</head>
+
+<body>
+    <br>
+    <div id="grid" style="text-align: center; margin-top: 200px;">
+        <div class="check">
+            <button type="button"><a href="{% url 'loading' %}">
+                <img src="/static/images/logo.png" alt="check" width="1430px" style="padding-left: 0px;">
+            </button>
+        </div>     
+    </div>
+</body>
+{% endblock %}
+</html>

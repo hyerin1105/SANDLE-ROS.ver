@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'EF_watermelonSalad';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_watermelonSalad.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    background: url(img.jpg) no-repeat center fixed;
+    background-size: cover;
+    background-color: #184b9c;
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    color: #ffffff;
+    font-family: 'EF_watermelonSalad';
+}
+
+.img_peach {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 350;
+    padding-bottom: 80;
+}
+
+.container {
+    font-size: 24px;
+    margin: 25px;
+    width: 350px;
+    height: 200px;
+    outline: dashed 1px white;
+    display: flex;
+    justify-content: center;
+}
+
+.fieldset {
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+}
+
+.bar {
+    color: #ffffff;
+    size: 3;
+    text-align: left; /* 문자들의 가운데 정렬을 해제 */
+    width: 190px;
+    margin: 0 auto;
+}
+
+.btn{
+    margin-left: 700px;
+    margin-bottom: 100px;
+}

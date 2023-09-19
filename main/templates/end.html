@@ -1,0 +1,23 @@
+{% block content %}
+{% load static %}
+
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>산들 SANDLE - return</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/end.css' %}">
+</head>
+
+<body>
+    <br>
+    <div id="grid" style="text-align: center; margin-top: 200px;">
+        <div class="check">
+            <h1>신속정확 배달 서비스 산들:)</h1>
+            <button type="button"><a href="{% url 'logout' %}">
+                <img src="/static/images/logo.png" alt="check" width="400px" style="padding-left: 0px;">
+            </a></button>
+        </div>
+    </div>
+</body>
+{% endblock %}
+</html>
