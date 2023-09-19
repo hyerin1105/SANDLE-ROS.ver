@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 
 ########### ceo ###########
 def wait(request):
-    pub2 = rospy.Publisher('button_go', Bool, queue_size=10)
+    pub2 = rospy.Publisher('henes_come', Bool, queue_size=10)
     msg2 = Bool(data=True)
     pub2.publish(msg2)
     return render(request, 'wait.html')
@@ -32,7 +32,7 @@ def main1(request):
     msg = Bool(data=True)
     pub.publish(msg)
     
-    pub2 = rospy.Publisher('button_go', Bool, queue_size=10)
+    pub2 = rospy.Publisher('henes_go', Bool, queue_size=10)
     msg2 = Bool(data=True)
     pub2.publish(msg2)
     return render(request,'main1.html')
