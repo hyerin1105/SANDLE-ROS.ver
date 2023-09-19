@@ -16,7 +16,7 @@
                 <div class="login_image">
                         <img src="/static/images/logo.png" alt="logo" width="30%" style="margin-top: 124px;">
                     <div>
-                        <form method="POST" action="{% url 'checking' %}">
+                        <form method="POST">
                                 {% csrf_token %}
                             <div class="signup-page" style="padding-top: 20px;">
                                 <div class="form">
@@ -26,7 +26,7 @@
                                         <input type="password" minlength="6" maxlength="6" id="confirm" name="confirm" placeholder="비밀번호 확인" /><br>
                                         <button type="button">mic</button>
                                         <br><br>
-                                        <button type="submit">고객 등록하기</button>
+                                        <button type="submit" action="{% url 'checking' %}">고객 등록하기</button>
                                 </form>
                             </div>
                         </div>

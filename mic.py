@@ -2,7 +2,7 @@ import rospy
 from std_msgs.msg import Bool
 
 rospy.init_node('mic_node', anonymous=True)
-pub = rospy.Publisher('/mic', Bool, queue_size=10)
+pub = rospy.Publisher('/mic_button', Bool, queue_size=10)
 rate = rospy.Rate(1)
 val = Bool()
 
