@@ -31,10 +31,6 @@ def checking(request):
 ########### customer ###########
 def main1(request):
     rospy.init_node('ros_web_interface', anonymous=True)
-
-    pub = rospy.Publisher('button_open', Bool, queue_size=10)
-    msg = Bool(data=True)
-    pub.publish(msg)
     
     pub2 = rospy.Publisher('henes_go', Bool, queue_size=10)
     msg2 = Bool(data=True)
@@ -48,7 +44,6 @@ def goods(request):
 rospy.init_node('ros_web_interface', anonymous=True)
 def complete(request):
     rospy.init_node('ros_web_interface', anonymous=True)
-
     pub = rospy.Publisher('button_open', Bool, queue_size=10)
     msg = Bool(data=True)
     pub.publish(msg)
