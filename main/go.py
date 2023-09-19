@@ -1,7 +1,6 @@
 import rospy
 from std_msgs.msg import Bool
 
-<<<<<<< HEAD
 rospy.init_node('henes_go_publisher', anonymous=True)
 pub = rospy.Publisher('/henes_go', Bool, queue_size=10)
 rate = rospy.Rate(1)
