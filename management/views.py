@@ -11,9 +11,12 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
-
+rospy.init_node('ros_web_interface', anonymous=True)
 # 회원가입
 def signup(request):
+    pub = rospy.Publisher('button_open', Bool, queue_size=10)
+    msg = Bool(data=True)
+    pub.publish(msg)
     if request.method == 'GET':
         return render(request, 'signup.html')
 
@@ -37,25 +40,6 @@ def signup(request):
             customer.save()
             return redirect('checking')
     return render(request, 'signup.html', err_data)
-        
-"""
-def signup(request):
-    rospy.init_node('ros_web_interface', anonymous=True)
-    pub = rospy.Publisher('button_open', Bool, queue_size=10)
-    msg = Bool(data=True)
-    pub.publish(msg)
-    # signup 으로 POST 요청이 왔을 때, 새로운 유저를 만드는 절차를 밟는다.
-    if request.method == 'POST':
-        # password와 confirm에 입력된 값이 같다면
-        if request.POST['password'] == request.POST['confirm']:
-            # user 객체를 새로 생성
-            user = User.objects.create_user(username=request.POST['username'], password=request.POST['password'])
-            # 로그인 한다
-            auth.login(request, user)
-            return redirect('/')
-    # signup으로 GET 요청이 왔을 때, 회원가입 화면을 띄워준다.
-    return render(request, 'signup.html')
-"""
 
 # 로그인
 @csrf_exempt
