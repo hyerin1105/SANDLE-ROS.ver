@@ -14,19 +14,20 @@ from django.views.decorators.http import require_POST
 rospy.init_node('ros_web_interface', anonymous=True)
 # 회원가입
 def signup(request):
-    pub = rospy.Publisher('button_open', Bool, queue_size=10)
+    pub = rospy.Publisher('open_door', Bool, queue_size=10)
     msg = Bool(data=True)
     pub.publish(msg)
+
+    pub4 = rospy.Publisher('microphone', Bool, queue_size=10)
+    msg4 = Bool(data=True)
+    pub4.publish(msg4)
     if request.method == 'GET':
-        """
-        pub4 = rospy.Publisher('mic', Bool, queue_size=10)
-        msg4 = Bool(data=True)
-        pub4.publish(msg4)
-        return JsonResponse({'message': 'Enable speeh recognition'})
-        """
         return render(request, 'signup.html')
 
     elif request.method == 'POST':
+        pub = rospy.Publisher('open_door', Bool, queue_size=10)
+        msg = Bool(data=True)
+        pub.publish(msg)
         username = request.POST.get('username', None)
         password = request.POST.get('password', None)
         confirm = request.POST.get('confirm', None)
@@ -68,26 +69,7 @@ def login(request):
             else:
                 err_data['error'] = '비밀번호가 일치하지 않습니다.'
         return render(request, 'signup.html', err_data)
-        
-    """
-    rospy.init_node('ros_web_interface', anonymous=True)
-    pub = rospy.Publisher('/mic', Bool, queue_size=10)
 
-    def publish_mic_topic(request):
-        msg = Bool(data=True)
-        pub.publish(msg)
-        return JsonResponse({'message': 'ROS topic published successfully'})
-    """
-
-"""
-rospy.init_node('ros_web_interface', anonymous=True)
-pub = rospy.Publisher('/mic', Bool, queue_size=10)
-
-def publish_mic_topic(request):
-    msg = Bool(data=True)
-    pub.publish(msg)
-    return JsonResponse({'message': 'ROS topic published successfully'})
-"""
 # 로그아웃
 #@login_required 로그인 인증되어있을 때만 실행됨
 def logout(request):

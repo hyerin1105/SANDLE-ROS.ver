@@ -6,7 +6,7 @@ pub = rospy.Publisher('/open_door', Bool, queue_size=10)
 rate = rospy.Rate(1)
 val = Bool()
 
-def pulish_button_press():
+def button_press():
     msg = "Button Pressed"
     rospy.loginfo(msg)
     pub.publish(msg)

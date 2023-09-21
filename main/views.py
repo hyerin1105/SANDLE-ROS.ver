@@ -23,7 +23,7 @@ def loading(request):
 
 def checking(request):
     rospy.init_node('ros_web_interface', anonymous=True)
-    pub2 = rospy.Publisher('button_open', Bool, queue_size=10)
+    pub2 = rospy.Publisher('open_door', Bool, queue_size=10)
     msg2 = Bool(data=True)
     pub2.publish(msg2)
     return render(request, 'checking.html')
@@ -42,14 +42,14 @@ def goods(request):
 
 def complete(request):
     rospy.init_node('ros_web_interface', anonymous=True)
-    pub = rospy.Publisher('button_open', Bool, queue_size=10)
+    pub = rospy.Publisher('open_door', Bool, queue_size=10)
     msg = Bool(data=True)
     pub.publish(msg)
     return render(request, 'complete.html')
 
 rospy.init_node('ros_web_interface', anonymous=True)
 def end(request):
-    pub = rospy.Publisher('button_open', Bool, queue_size=10)
+    pub = rospy.Publisher('open_door', Bool, queue_size=10)
     msg = Bool(data=True)
     pub.publish(msg)
     return render(request, 'end.html')
