@@ -23,7 +23,7 @@ def loading(request):
 
 def checking(request):
     rospy.init_node('ros_web_interface', anonymous=True)
-    pub2 = rospy.Publisher('henes_go', Bool, queue_size=10)
+    pub2 = rospy.Publisher('button_open', Bool, queue_size=10)
     msg2 = Bool(data=True)
     pub2.publish(msg2)
     return render(request, 'checking.html')
