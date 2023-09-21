@@ -5,7 +5,7 @@ from .forms import LoginForm
 from .models import Customer
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, JsonResponse, Http404
-from std_msgs.msg import Bool
+from std_msgs.msg import Bool, String
 from django.contrib.auth import authenticate
 from django.core.exceptions import PermissionDenied
 from django.contrib.auth.decorators import login_required
@@ -20,6 +20,9 @@ def wait(request):
 
 def loading(request):
     return render(request, 'loading.html')
+
+def map(request):
+    return render(request, 'map.html')
 
 def checking(request):
     rospy.init_node('ros_web_interface', anonymous=True)

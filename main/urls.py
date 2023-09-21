@@ -7,6 +7,7 @@ urlpatterns = [
     path('', views.wait, name="wait"),
     path('wait', views.wait, name="wait"),
     path('loading', views.loading, name="loading"),
+    path('map', views.map, name="map"),
     path('checking', views.checking, name="checking"),
     ########### customer ###########
     path('main1', views.main1, name="main1"),

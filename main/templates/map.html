@@ -1,0 +1,30 @@
+{% load static %}
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>산들 SANDLE - 학교 지도(고유번호)</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/map.css' %}">
+</head>
+
+<body>
+    <legend style="color: #888B81; text-align: center">
+        <br>
+        <h1>건물번호</h1>
+            
+        <div class="bar" style="text-align: center">
+            <hr width = "190px" color = "#ffffff" size = "3">
+        </div><br><br>
+            
+        <div class="img_peach">
+            <img src="/static/images/map.jpg" alt="goods" width="700px">
+        </div>
+        <h1>건물번호를 확인해주세요</h1>
+    </legend>
+
+<div class="btn">
+    <button type="button"><a href="{% url 'signup' %}">
+        <img src="/static/images/logo.png" alt="check" width="400px" style="padding-left: 0px;">
+    </a></button>
+</div>
+</body>
+</html>
