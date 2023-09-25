@@ -14,10 +14,6 @@ from django.views.decorators.http import require_POST
 rospy.init_node('ros_web_interface', anonymous=True)
 # 회원가입
 def signup(request):
-    pub = rospy.Publisher('open_door', Bool, queue_size=10)
-    msg = Bool(data=True)
-    pub.publish(msg)
-
     pub4 = rospy.Publisher('microphone', Bool, queue_size=10)
     msg4 = Bool(data=True)
     pub4.publish(msg4)
