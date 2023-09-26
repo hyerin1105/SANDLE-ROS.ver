@@ -17,10 +17,7 @@ def signup(request):
     pub4 = rospy.Publisher('microphone', Bool, queue_size=10)
     msg4 = Bool(data=True)
     pub4.publish(msg4)
-
-    pub5 = rospy.Publisher('destination', String, queue_size=10)
-    msg5 = String() #std::
-    pub5.publish(msg5)
+    
     if request.method == 'GET':
         return render(request, 'signup.html')
 
