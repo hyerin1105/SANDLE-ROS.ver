@@ -26,10 +26,6 @@ def map(request):
     pub2 = rospy.Publisher('open_door', Bool, queue_size=10)
     msg2 = Bool(data=True)
     pub2.publish(msg2)
-
-    pub5 = rospy.Publisher('destination', String, queue_size=10)
-    msg5 = String() #std::
-    pub5.publish(msg5)
     return render(request, 'map.html')
 
 def checking(request):
