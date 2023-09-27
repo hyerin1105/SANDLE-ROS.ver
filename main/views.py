@@ -62,7 +62,7 @@ def complete(request):
 
 rospy.init_node('ros_web_interface', anonymous=True)
 def end(request):
-    pub2 = rospy.Publisher('open_door', Bool, queue_size=10)
-    msg2 = Bool(data=False)
-    pub2.publish(msg2)
+    pub = rospy.Publisher('receive_product', Bool, queue_size=10)
+    msg = Bool(data=False)
+    pub.publish(msg)
     return render(request, 'end.html')
