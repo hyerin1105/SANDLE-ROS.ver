@@ -13,11 +13,7 @@ from django.views.decorators.http import require_POST
 
 rospy.init_node('ros_web_interface', anonymous=True)
 # 회원가입
-def signup(request):
-    pub4 = rospy.Publisher('microphone', Bool, queue_size=10)
-    msg4 = Bool(data=True)
-    pub4.publish(msg4)
-    
+def signup(request):    
     if request.method == 'GET':
         return render(request, 'signup.html')
 
@@ -25,6 +21,7 @@ def signup(request):
         pub = rospy.Publisher('open_door', Bool, queue_size=10)
         msg = Bool(data=True)
         pub.publish(msg)
+        
         username = request.POST.get('username', None)
         password = request.POST.get('password', None)
         confirm = request.POST.get('confirm', None)
