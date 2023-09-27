@@ -4,7 +4,7 @@ from std_msgs.msg import String
 pub = rospy.Publisher('/destination', String, queue_size=10)
 rospy.init_node('destination', anonymous=True)
 rate = rospy.Rate(1)
-val = String()
+val = String(func)
 
 def func():
     destination_value = ""  # Initialize destination_value
