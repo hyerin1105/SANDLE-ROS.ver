@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth.hashers import make_password, check_password
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
@@ -19,7 +19,7 @@ def signup(request):
 
     elif request.method == 'POST':
         pub = rospy.Publisher('open_door', Bool, queue_size=10)
-        msg = Bool(data=True)
+        msg = Bool(data=False)
         pub.publish(msg)
         
         username = request.POST.get('username', None)

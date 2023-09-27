@@ -2,7 +2,7 @@ import rospy
 from std_msgs.msg import Bool
 
 rospy.init_node('henes_come_publisher', anonymous=True)
-pub = rospy.Publisher('/henes_come', Bool, queue_size=10)
+pub = rospy.Publisher('/receive_product', Bool, queue_size=10)
 rate = rospy.Rate(1)
 val = Bool()
 
