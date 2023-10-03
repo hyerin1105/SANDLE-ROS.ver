@@ -1,0 +1,27 @@
+{% block content %}
+{% load static %}
+
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>산들 SANDLE - 배달 시작</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/checking.css' %}">
+</head>
+
+<body>
+    <br>
+    <div id="grid" style="text-align: center; margin-top: 200px;">
+        <div class="check">
+            <h1>물건을 다 실었을 시 버튼을 눌러주세요.</h1><br>
+            <h2>HENES가 출발합니다.</h2> <!-- 숫자 알아서 카운트 되게 기능 넣기 -->
+            <h2>신속정확 배달 산들서비스:)</h2>
+            <div class="btn">
+                <button type="button"><a href="{% url 'main1' %}">
+                    <img src="/static/images/logo.png" alt="check" width="400px" style="padding-left: 0px;">
+                </a></button>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
+</html>

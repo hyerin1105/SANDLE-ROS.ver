@@ -1,0 +1,25 @@
+{% block content %}
+{% load static %}
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>산들 SANDLE - 물건 싣기</title>
+    <link rel="stylesheet" href="{% static 'css/loading.css' %}">
+</head>
+
+<body>
+    <br>
+    <div id="grid" style="text-align: center; margin-top: 200px;">
+        <div class="check">
+            <h1>산들 SANDLE</h1>
+            <h1>주문받은 물건을 실어주세요</h1>
+            <button type="button"><a href="{% url 'map' %}">
+                <img src="/static/images/logo.png" alt="check" width="400px" style="padding-left: 0px;">
+            </a></button><button type="button">
+        </div>
+    </div>
+</body>
+{% endblock %}
+</html>

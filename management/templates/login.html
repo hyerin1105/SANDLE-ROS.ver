@@ -1,0 +1,42 @@
+{% load static %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>산들 SANDLE - 고객 확인</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+
+<body>
+    {% if user.is_authenticated %}
+    <div class="login_image" align="center">
+        <img src="/static/images/logo.png" alt="logo" width="30%" style="margin-top: 124px;">
+        <div class="login-ment">
+            로그인 성공!<br>
+            {{ user.username }} 님 환영합니다.<br><br>
+            <a href="{% url 'goods' %}"><input type="submit" value="로그인"></a>
+        </div>
+    </div>
+	{% else %}
+    <div class="loginbox" align="center">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="login_image">
+                <img src="/static/images/logo.png" alt="logo" width="30%" style="margin-top: 124px;">
+                <div>
+                    <div class="login-page" style="padding-top: 20px;">
+                        <div class="form">
+                            <form class="login-form">
+                                <input type="username" minlength="1" maxlength="4" id="username" name="username" placeholder="건물번호" /><br>
+                                <input type="password" minlength="6" maxlength="6" id="password" name="password" placeholder="비밀번호" /><br>
+                                <button type="submit" value="login">물품 픽업하기</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        {% endif %}
+    </div>
+</body>
+</html>
