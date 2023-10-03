@@ -12,6 +12,59 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
 rospy.init_node('ros_web_interface', anonymous=True)
+
+# Initialize the destination publisher and val variable
+pub5 = rospy.Publisher('destination', String, queue_size=10)
+val = String()
+
+def func(destination_value):
+    if (destination_value == "0"):
+        val.data = "Main_University"  # Set the data attribute of val
+    elif (destination_value == "1"):
+        val.data = "Medical_Sciences_Gwans"
+    elif (destination_value == "2"):
+        val.data = "International_Center"
+    elif (destination_value == "3"):
+        val.data = "Naturel_Science_Gwan"
+    elif (destination_value == "5"):
+        val.data = "Idesign"
+    elif (destination_value == "6"):
+        val.data = "Humanities_Social_Science_Gwan"
+    elif (destination_value == "7"):
+        val.data = "Educational_Sciences_Gwan"
+    elif (destination_value == "9"):
+        val.data = "Gong_Hak_Gwan"
+    elif (destination_value == "A"):
+        val.data = "Antire_preneur_Gwan"
+    elif (destination_value == "B"):
+        val.data = "San_Hak_Hyeop_Ryeok_Gwan"
+    elif (destination_value == "BI"):
+        val.data = "BRIX_Gwan"
+    elif (destination_value == "C"):
+        val.data = "Regional_Innovation_Gwan"
+    elif (destination_value == "GV"):
+        val.data = "Global_Village"
+    elif (destination_value == "H"):
+        val.data = "Hak_Ye_Gwans"
+    elif (destination_value == "L"):
+        val.data = "Library"
+    elif (destination_value == "M"):
+        val.data = "Multi_Media_Gwans"
+    elif (destination_value == "ML"):
+        val.data = "Media_Laps"
+    elif (destination_value == "RC"):
+        val.data = "Hyang_111"
+    elif (destination_value == "RC2"):
+        val.data = "Hyang_222"
+    elif (destination_value == "RC3"):
+        val.data = "Hyang_333"
+    elif (destination_value == "T"):
+        val.data = "Han_maru"
+    elif (destination_value == "U"):
+        val.data = "Unitophia_Gwan"
+    else:
+        val.data = "I don't know what you're talking about"
+
 # 회원가입
 def signup(request):    
     if request.method == 'GET':
@@ -39,11 +92,13 @@ def signup(request):
                 password=make_password(password),
             )
             customer.save()
+            
+            func(username)
+            pub5.publish(val)
             return redirect('checking')
     return render(request, 'signup.html', err_data)
 
 # 로그인
-#rospy.init_node('ros_web_interface', anonymous=True)
 @csrf_exempt
 def login(request):
     if request.method == 'GET':
@@ -65,7 +120,6 @@ def login(request):
         return render(request, 'signup.html', err_data)
 
 # 로그아웃
-#@login_required 로그인 인증되어있을 때만 실행됨
 def logout(request):
     auth.logout(request)
     return redirect('wait')
