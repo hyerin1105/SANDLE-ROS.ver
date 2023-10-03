@@ -11,7 +11,7 @@ def func():
     if (destination_value == "0"):
         val.data = "Main_University"  # Set the data attribute of val
     elif (destination_value == "1"):
-        val.data = "Medical_Sciences_Gwans"
+        val.data = "Medical_Sciences_Gwan"
     elif (destination_value == "2"):
         val.data = "International_Center"
     elif (destination_value == "3"):
@@ -35,11 +35,11 @@ def func():
     elif (destination_value == "GV"):
         val.data = "Global_Village"
     elif (destination_value == "H"):
-        val.data = "Hak_Ye_Gwans"
+        val.data = "Hak_Ye_Gwan"
     elif (destination_value == "L"):
         val.data = "Library"
     elif (destination_value == "M"):
-        val.data = "Multi_Media_Gwans"
+        val.data = "Multi_Media_Gwan"
     elif (destination_value == "ML"):
         val.data = "Media_Laps"
     elif (destination_value == "RC"):
