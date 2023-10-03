@@ -10,7 +10,6 @@ from django.contrib.auth import authenticate
 from django.core.exceptions import PermissionDenied
 from django.contrib.auth.decorators import login_required
 
-
 ########### ceo ###########
 def wait(request):
     pub3 = rospy.Publisher('receive_product', Bool, queue_size=10)
@@ -33,9 +32,6 @@ def checking(request):
     msg4 = Bool(data=True)
     pub4.publish(msg4)
     
-    pub5 = rospy.Publisher('destination', String, queue_size=10)
-    msg5 = String() #std::
-    pub5.publish(msg5)
     return render(request, 'checking.html')
 
 ########### customer ###########
