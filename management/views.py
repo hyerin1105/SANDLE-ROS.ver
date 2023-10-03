@@ -45,7 +45,7 @@ def func(destination_value):
     elif (destination_value == "GV"):
         val.data = "Global_Village"
     elif (destination_value == "H"):
-        val.data = "Hak_Ye_Gwans"
+        val.data = "Hak_Ye_Gwan"
     elif (destination_value == "L"):
         val.data = "Library"
     elif (destination_value == "M"):
