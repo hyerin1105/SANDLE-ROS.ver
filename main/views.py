@@ -46,11 +46,7 @@ def main1(request):
     pub2.publish(msg2)
     return render(request,'main1.html')
 
-#@login_required(login_url='managment/login/')
 def goods(request):
-    pub2 = rospy.Publisher('open_door', Bool, queue_size=10)
-    msg2 = Bool(data=True)
-    pub2.publish(msg2)
     return render(request, 'goods.html')
 
 def complete(request):
@@ -62,7 +58,7 @@ def complete(request):
 
 rospy.init_node('ros_web_interface', anonymous=True)
 def end(request):
-    pub = rospy.Publisher('receive_product', Bool, queue_size=10)
-    msg = Bool(data=False)
-    pub.publish(msg)
+    pub2 = rospy.Publisher('open_door', Bool, queue_size=10)
+    msg2 = Bool(data=False)
+    pub2.publish(msg2)
     return render(request, 'end.html')
